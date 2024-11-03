@@ -37,3 +37,5 @@ python schemagen.py convert-sp --to=flypy --rime-dict=out5.txt > out6.txt
 10. zrmdb.txt 更新为小鹤拆字模式
 
 11. tiger.dict.yaml 改为 # https://github.com/mirtlecn/rime_radical_pinyin
+
+12. 想要启动`部件查字，需要在输入法设定中激活 虎码
