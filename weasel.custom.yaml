@@ -1,0 +1,8 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.16.3
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Sun Nov  3 00:21:16 2024"
+  rime_version: 1.11.2
+patch:
+  "style/color_scheme": youtube

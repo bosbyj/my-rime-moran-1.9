@@ -1,0 +1,39 @@
+基于魔然1.9版 简体版
+发布日期: 2024-04-14
+部分模块改自2.0发布前main分支
+
+rime平台: 0.16.3.0
+发布日期: 2024-10-04
+
+
+变动文件
+
+1. moran_fixed_simp.dict.yaml 使用小鹤v10.9s版，header变更为可造词的配置。
+
+2. moran.chars.dict.yaml 使用脚本转换小鹤音形官方8000多字，然后加上词频，使用 grep -v 或者 pwsh 类似语句 去掉 ?? 三码简码，也要放进去  机型的【机】字？还是算了 de之类怎么办
+
+3. moran_custom_phrases.txt 用户词库，会置顶
+
+4. moran.extended.dict 只打开2个词库即可，chars全码单字表，words小鹤官方词组【同音词需要打磨，看看用脚本生成一下】
+   import_tables:
+  - moran.chars      # 自然碼單字表
+  - moran.words      # 本方案補充詞
+
+moran.words.通过这个，两步
+python -X utf8 schemagen.py --pinyin-table data/pinyin_simp.txt gen-dict --input-dict C:\Users\zhao.chao6\Codes\小鹤繁体计划\小鹤官方词组去除简码和逗号和英文字母词.txt --no-freq > out5.txt
+python schemagen.py convert-sp --to=flypy --rime-dict=out5.txt > out6.txt
+【这部分已经统一处理，使用gaboolic词】
+
+5. symbols.yaml 需要自定义一下
+
+6. moran.yaml 【做下diff】done
+
+7. moran.schema.yaml 【做下diff】done
+
+8. weasel.custom.yaml 皮肤等【改放在schema.yaml里了】
+
+9. 拆字表 ctrl+i 功能，opencc 目录下，修改 moran_chaifen.txt
+
+10. zrmdb.txt 更新为小鹤拆字模式
+
+11. tiger.dict.yaml 改为 # https://github.com/mirtlecn/rime_radical_pinyin
