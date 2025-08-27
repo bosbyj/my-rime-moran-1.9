@@ -307,8 +307,9 @@ __patch:
     - stroke
     - tiger
 
-  engine/processors/@1: lua_processor@*user_dot_commit_processor  # 引用自己的 lua 插件，让 . 实现全码直接上屏
-
+  # 插入 user_dot_commit_processor 在 key_binder 之后、ascii_composer 之前 让 . 实现全码直接上屏
+  engine/processors/@before 1: lua_processor@*user_dot_commit_processor
+  
   engine/translators/@7: ''  ## 禁用英文单词输入功能
   
   speller/alphabet: abcdefghijklmnopqrstuvwxyz,/
