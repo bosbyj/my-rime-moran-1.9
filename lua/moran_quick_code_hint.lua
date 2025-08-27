@@ -42,7 +42,7 @@ function Module.func(translation, env)
          if all_codes then
             local codes = {}
             for code in all_codes:gmatch("%S+") do
-               if #code < 4 then
+               if #code <= 4 then
                   table.insert(codes, code)
                end
             end
