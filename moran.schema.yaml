@@ -307,9 +307,11 @@ __patch:
     - stroke
     - tiger
 
+  engine/processors/@1: lua_processor@*user_dot_commit_processor  # 引用自己的 lua 插件，让 . 实现全码直接上屏
+
   engine/translators/@7: ''  ## 禁用英文单词输入功能
   
-  speller/alphabet: abcdefghijklmnopqrstuvwxyz,./
+  speller/alphabet: abcdefghijklmnopqrstuvwxyz,/
   speller/initials: abcdefghijklmnopqrstuvwxyz-
   # speller/finals: ' .'
   speller/delimiter: " ',"
