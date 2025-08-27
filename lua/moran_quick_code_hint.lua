@@ -46,10 +46,14 @@ function Module.func(translation, env)
                   table.insert(codes, code)
                end
             end
-            -- the user is using the quick code right now
-            if #codes == 1 and codes[1] == cand.preedit then
-               goto continue
-            end
+            
+            -- 注释掉了下方内容，让4码输满了的单词，也显示全码提示
+
+            -- -- the user is using the quick code right now
+            -- if #codes == 1 and codes[1] == cand.preedit then
+            --    goto continue
+            -- end
+
             if #codes > 0 then
                -- do not show two indicators
                if gcand.comment == indicator then
