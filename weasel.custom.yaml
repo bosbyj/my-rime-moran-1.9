@@ -1,8 +1,23 @@
 customization:
   distribution_code_name: Weasel
-  distribution_version: 0.16.3
+  distribution_version: 0.17.4
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Sun Nov  3 00:21:16 2024"
-  rime_version: 1.11.2
+  modified_time: "Thu Aug 28 02:43:25 2025"
+  rime_version: 1.13.1
 patch:
-  "style/color_scheme": youtube
+  "menu/page_size": 2
+  "preset_color_schemes/+":
+    "$crane": {author: "水猫 <kchen0x@gmail.com>", back_color: 0xE3E3E3, border_color: 0x545554, border_color_width: 2, border_height: 4, border_width: 4, candidate_back_color: 0xffffff, candidate_format: " %@ ", candidate_text_color: 0x000000, comment_font_point: 16, comment_text_color: 0x555555, corner_radius: 4, font_point: 18, hilited_back_color: 0xffffff, hilited_candidate_back_color: 0x545554, hilited_candidate_label_color: 0xeeeeee, hilited_candidate_text_color: 0xffffff, hilited_comment_text_color: 0xcccccc, hilited_text_color: 0x000000, label_color: 0x555555, label_font_point: 12, name: "$雪下鹤", text_color: 0x333333}
+    "$metro": {author: flypy.com, back_color: 0xffffff, border_color: 0xe89f00, border_color_width: 1, border_height: 8, border_width: 8, candidate_back_color: 0xffffff, candidate_format: "%c %@", candidate_text_color: 0x000000, comment_text_color: 0x555555, corner_radius: 6, font_point: 18, hilited_back_color: 0xffffff, hilited_candidate_back_color: 0xe89f00, hilited_candidate_label_color: 0xeeeeee, hilited_candidate_text_color: 0xffffff, hilited_comment_text_color: 16777215, hilited_text_color: 0x000000, horizontal: true, inline_preedit: true, label_color: 0x555555, label_font_point: 14, name: "$metro", text_color: 0x333333}
+    "$my_color_scheme": {author: bosbyj, back_color: 14606046, border_color: 14606046, candidate_back_color: 16777215, candidate_text_color: 0, comment_text_color: 0, hilited_back_color: 16777215, hilited_candidate_back_color: 6698240, hilited_candidate_text_color: 16777215, hilited_comment_text_color: 16777215, hilited_text_color: 2297283, horizontal: false, inline_preedit: true, label_color: 0, label_font_point: 0, name: "$我的配色", text_color: 0}
+    "$wechat": {author: zsakvo, back_color: 0xFFFFFF, border_color: 0xDDDDDD, candidate_text_color: 0x525252, comment_text_color: 0x999999, hilited_back_color: 0xDDDDDD, hilited_candidate_back_color: 0x75B100, hilited_candidate_text_color: 0xFFFFFF, hilited_comment_text_color: 16777215, hilited_label_color: 0xFFFFFF, hilited_text_color: 0x424242, label_color: 0x828282, name: "$微信键盘", text_color: 0x424242}
+  style:
+    comment_font_face: Consolas
+    comment_font_point: 8
+    font_face: "微软雅黑"
+    font_point: 11
+    horizontal: false
+    inline_preedit: true
+    label_font_point: 0
+    layout: {border: 2, candidate_spacing: 3, corner_radius: 0, hilite_padding: 3, hilite_spacing: 3, margin: 3, margin_x: 0, margin_y: 0, max_width: 0, min_width: 0, round_corner: 0}
+  "style/color_scheme": "$my_color_scheme"

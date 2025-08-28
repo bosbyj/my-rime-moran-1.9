@@ -1,3 +1,10 @@
+20250828 版本：
+- 迁移皮肤至 weasel.custom.yaml 更符合标准
+- 候选词设置迁移至 default.custom.yaml 更符合标准
+- 新增 is_in_user_dict.lua 插件
+- 去除 简快码 用户词 emoji，界面改为低调模式
+
+
 20250827 版本：
 - 实现 . 全码上屏功能
 

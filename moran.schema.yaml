@@ -261,7 +261,7 @@ moran:
   # 簡快碼提示符
   # 修改爲 "" 可取消提示符
   # 建議在熟悉簡碼後再取消
-  quick_code_indicator: "⚡️"
+  quick_code_indicator: "⚡"
 
   # 詞輔功能
   # 當輸入二字或三字詞時，允許詞末輸入 *一位* 輔助碼篩選詞語。
@@ -298,7 +298,7 @@ __include: moran:/octagram/enable_for_sentence
 #   __include: moran:/octagram/disable
 
 
-# 自定义补丁 #
+## 自定义补丁 ##
 __patch:
   schema/dependencies:
     - moran_fixed
@@ -307,14 +307,20 @@ __patch:
     - stroke
     - tiger
 
-  # 插入 user_dot_commit_processor 在 key_binder 之后、ascii_composer 之前 让 . 实现全码直接上屏
+  ## 插入 user_dot_commit_processor 在 key_binder 之后、ascii_composer 之前 让 . 实现全码直接上屏
   engine/processors/@before 1: lua_processor@*user_dot_commit_processor
   
-  engine/translators/@7: ''  ## 禁用英文单词输入功能
-  
+  ## 禁用英文单词输入功能
+  engine/translators/@7: ''
+
+  ## 注册 is_in_user_dict 插件
+  engine/filters/+: lua_filter@*is_in_user_dict
+
+  ## 增加 逗号, 取消 句号.
   speller/alphabet: abcdefghijklmnopqrstuvwxyz,/
   speller/initials: abcdefghijklmnopqrstuvwxyz-
   # speller/finals: ' .'
+  ## 增加 逗号,
   speller/delimiter: " ',"
 
   speller/algebra/+:
@@ -349,109 +355,10 @@ __patch:
   # 例如 輸入 yy te er 英特爾 會提示「⚡yte」，即使用 yte 可以打出這個詞
   moran/enable_quick_code_hint: true
 
+  ## 取消简快码提示符
+  moran/quick_code_indicator: ""
 
-  # 【自定义】界面
-
-  # 候选个数
-  menu/page_size: 3
-
-  # 配色
-  preset_color_schemes:
-
-    my-color:
-      author: "bosbyj"
-      back_color: 0xdedede
-      border_color: 0xdedede
-      candidate_text_color: 0x000000
-      comment_text_color: 0x000000
-      hilited_back_color: 0xffffff
-      hilited_candidate_back_color: 0x663500
-      hilited_candidate_text_color: 0xffffff
-      hilited_comment_text_color: 0xffffff
-      hilited_text_color: 0x230dc3
-      label_color: 0x000000
-      name: "my-color"
-      text_color: 0x000000
-
-    # 凇鹤版小鹤双拼输入法皮肤
-    crane:
-      name: "雪下鹤"
-      author: "水猫 <kchen0x@gmail.com>"
-      back_color: 0xE3E3E3                    # 候选条背景色
-      border_color_width: 2
-      border_color: 0x545554                  # 边框色
-      border_height: 4                        # 窗口边界高度，大于圆角半径才生效
-      border_width: 4                         # 窗口边界宽度，大于圆角半径才生效
-      candidate_format: "\u2005%@\u2005"      # 取消掉候选序号，用 1/6 em 空格 U+2005 包围候选词，这样更边距更舒服
-      corner_radius: 4                        # 窗口圆角半径
-      hilited_text_color: 0x000000            # 编码高亮
-      hilited_back_color: 0xffffff            # 编码背景高亮
-      hilited_candidate_label_color: 0xeeeeee # 首选编号色
-      hilited_candidate_text_color: 0xffffff  # 首选文字色
-      hilited_candidate_back_color: 0x545554  # 首选背景色
-      hilited_comment_text_color: 0xcccccc    # 首选提示字母色
-      label_color: 0x555555                             # 次选编号色
-      candidate_text_color: 0x000000                    # 次选文字色
-      candidate_back_color: 0xffffff                    # 次选背景色
-      comment_text_color: 0x555555                      # 次选提示字母色
-      # horizontal: true                        # 候选窗横向显示
-      font_point: 18                          # 候选窗文字字号
-      comment_font_point: 16                  # 提示文字大小
-      label_font_point: 12                    # 候选窗编号字号
-      # inline_preedit: true                    # 开启嵌入编码
-      # inline_candidate: true                  # 开启嵌入候选
-      text_color: 0x333333                    # 编码行文字颜色，24位色值，16进制，BGR顺序
-
-    # 原版小鹤双拼输入法皮肤
-    metro:
-      author: "flypy.com"
-      back_color: 0xffffff                    # 候选条背景色
-      border_color_width: 1
-      border_color: 0xe89f00                  # 边框色
-      border_height: 8                        # 窗口边界高度，大于圆角半径才生效
-      border_width: 8                         # 窗口边界宽度，大于圆角半径才生效
-      candidate_format: "%c\u2005%@"          # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
-      corner_radius: 6                        # 窗口圆角半径
-      #hilited_corner_radius: 6                # 高亮圆角
-      hilited_text_color: 0x000000            # 编码高亮
-      hilited_back_color: 0xffffff            # 编码背景高亮
-      hilited_candidate_label_color: 0xeeeeee # 首选编号色
-      hilited_candidate_text_color: 0xffffff  # 首选文字色
-      hilited_candidate_back_color: 0xe89f00  # 首选背景色
-      hilited_comment_text_color: 0xcccccc    # 首选提示字母色
-      label_color: 0x555555                             # 次选编号色
-      candidate_text_color: 0x000000                    # 次选文字色
-      candidate_back_color: 0xffffff                    # 次选背景色
-      comment_text_color: 0x555555                      # 次选提示字母色
-      horizontal: true                        # 候选窗横向显示
-      font_point: 18                          # 候选窗文字字号
-      label_font_point: 14                    # 候选窗编号字号
-      inline_preedit: true                    # 开启嵌入编码
-      name: "metro"
-      text_color: 0x333333                    # 编码行文字颜色，24位色值，16进制，BGR顺序
-
-  # 提示窗style
-  style:
-    color_scheme: crane
-
-    horizontal: false
-    inline_preedit: true
-    label_font_point: 0
-
-    font_face: "微软雅黑"
-    font_point: 11
-    comment_font_face: "Consolas"
-    comment_font_point: 8
-
-    layout:
-      border: 2
-      candidate_spacing: 3
-      corner_radius: 0
-      hilite_padding: 3
-      hilite_spacing: 3
-      max_width: 0
-      min_width: 0
-      margin: 3
-      margin_x: 0
-      margin_y: 0
-      round_corner: 0
+  ## 插件 为输入过的内容加星号
+  is_in_user_dict: true
+  ## 插件 为输入过的内容加星号 变更为 # 号
+  is_in_user_dict_indicator: "# "
