@@ -9,3 +9,6 @@ patch:
     - {schema: moran}
     - {schema: moran_fixed}
     - {schema: moran_aux}
+  # 自定义候选个数
+  menu:
+    page_size: 3
