@@ -347,6 +347,9 @@ __patch:
     tips: 〔部件〕
     __include: reverse_format
 
+  ## 取消出简让全
+  moran/ijrq/enable: false
+
   # 輸入四碼時，如果簡碼碼表中含有對應條目，則放置在第二選項。
   moran/show_chars_anyway: true   # 是否輸出簡碼碼表單字，例：輸入 jwrg 時，次選爲「佳」
   moran/show_words_anyway: false   # 是否輸出簡碼碼表詞語，例：輸入 lmsd 時，次選爲「兩面三刀」
