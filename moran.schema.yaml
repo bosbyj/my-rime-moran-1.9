@@ -314,7 +314,7 @@ __patch:
   engine/translators/@7: ''
 
   ## 注册 is_in_user_dict 插件
-  engine/filters/+: lua_filter@*is_in_user_dict
+  engine/filters/@before 0: lua_filter@*is_in_user_dict
 
   ## 增加 逗号, 取消 句号.
   speller/alphabet: abcdefghijklmnopqrstuvwxyz,/
